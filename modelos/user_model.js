@@ -2,6 +2,10 @@ const { genSalt, hash } = require('bcrypt');
 const {Schema,model} = require('mongoose');
 
 const user_esquema = new Schema({
+    usuario:{
+        type: "string",
+        required: true
+    },
     correo:{
         type: "string",
         unique:true,

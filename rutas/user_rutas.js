@@ -20,7 +20,7 @@ user_rutas.post("/login", async function(req,res){
             const token = sign({correo:usuario.correo, rol:usuario.rol},process.env.JWT_SECRET_KEY)
             return res.status(200).send({estado:"OK",msg:"Logueado",token})
         }
-        else{
+        else{ 
             return res.status(401).send({estado:"Error",msg:"Credenciales no validas"})
         }
     } catch (error) {

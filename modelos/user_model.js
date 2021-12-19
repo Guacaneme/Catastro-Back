@@ -18,10 +18,10 @@ const user_esquema = new Schema({
     }
 });
 
-user_esquema.pre("/guardar_use", function(next) {
+user_esquema.pre("/guardar_use", async function(next) {
     const salt = genSalt(10);
     console.log(salt);
-    this.contrasena= hash(this.contrasena, salt);
+    this.contrasena= await hash(this.contrasena, salt);
     next();
 });
 

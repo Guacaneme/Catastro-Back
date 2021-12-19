@@ -13,7 +13,7 @@ user_rutas.post("/login", async function(req,res){
         if (!usuario){
             return res.status(401).send({estado:"Error",msg:"Credenciales no válidas"})
         }
-        const passok = await compare(contrasena,usuario.contrasena);
+        const passok =   compare(contrasena,usuario.contrasena);
         console.log("--------------------------------------------------------"),
         console.log(passok);
         if(passok){

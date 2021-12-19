@@ -22,9 +22,8 @@ const user_esquema = new Schema({
     }
 });
 
-user_esquema.pre("/guardar_use", async function(next) {
-    const salt = genSalt(10);
-    console.log(salt);
+user_esquema.pre("save", async function(next) {
+    const salt = await genSalt(10);
     this.contrasena= await hash(this.contrasena, salt);
     next();
 });

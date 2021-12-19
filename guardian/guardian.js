@@ -6,9 +6,9 @@ const guardian = (req, res, next) =>{
         next(JSON.stringify({estado:"error", msg:"No autorizado"}));
     }
     try{
-        const t=autorization.split(" ")[1];
+        const t = autorization.split(" ")[1];
         const payload = verify(t,"misecreto");
-        if (payload.rol !== "admin"){
+        if (payload.rol !== " "){
             next(JSON.stringify({estado:"error", msg:"No autorizado"}));
         }
     }
